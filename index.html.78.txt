@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NailVerse 美甲宇宙 | 數位創意 × 美甲未來</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .nail-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, #ff6b9d 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #4ecdc4 0%, transparent 50%);
+        }
+        
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">
+                        💅 NailVerse
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#gallery" class="text-gray-700 hover:text-purple-600 transition-colors">圖庫瀏覽</a>
+                    <a href="#plans" class="text-gray-700 hover:text-purple-600 transition-colors">訂閱方案</a>
+                    <a href="#machine" class="text-gray-700 hover:text-purple-600 transition-colors">打印機</a>
+                    <a href="#designers" class="text-gray-700 hover:text-purple-600 transition-colors">成為設計師</a>
+                </div>
+                <div class="flex space-x-4">
+                    <button class="text-purple-600 hover:text-purple-800 transition-colors">登入</button>
+                    <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        立即訂閱
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl font-bold mb-6 leading-tight">
+                        設計無限<br>
+                        <span class="text-yellow-300">印出靈感</span>
+                    </h1>
+                    <p class="text-xl mb-8 opacity-90">
+                        一鍵下載，全台最潮美甲設計<br>
+                        打造設計師 × 美甲師 × 消費者三贏生態圈
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            🎨 瀏覽圖庫
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                            🖨️ 了解打印機
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-animation">
+                    <div class="bg-white rounded-2xl p-8 shadow-2xl">
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="w-16 h-20 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full"></div>
+                            <div class="w-16 h-20 bg-gradient-to-br from-blue-400 to-teal-500 rounded-full"></div>
+                            <div class="w-16 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full"></div>
+                            <div class="w-16 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full"></div>
+                            <div class="w-16 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full"></div>
+                            <div class="w-16 h-20 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full"></div>
+                        </div>
+                        <p class="text-gray-600 text-center mt-4 font-medium">美甲設計預覽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">三大族群，一個平台</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center card-hover bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">💅</div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">美甲師</h3>
+                    <p class="text-gray-600 mb-6">快速獲得設計靈感，提升服務效率，增加客戶滿意度</p>
+                    <button class="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors">
+                        立即訂閱
+                    </button>
+                </div>
+                <div class="text-center card-hover bg-gradient-to-br from-blue-50 to-teal-50 p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">設計師</h3>
+                    <p class="text-gray-600 mb-6">上架原創作品，獲得被動收入，累積個人品牌影響力</p>
+                    <button class="bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-colors">
+                        成為設計師
+                    </button>
+                </div>
+                <div class="text-center card-hover bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">🖨️</div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">美甲店家</h3>
+                    <p class="text-gray-600 mb-6">購買專業打印機，提供一鍵列印服務，提升營運效率</p>
+                    <button class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors">
+                        購買設備
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section id="gallery" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">熱門設計圖庫</h2>
+                <p class="text-gray-600">每日更新，緊跟潮流趨勢</p>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition-colors">全部</button>
+                <button class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors">幾何圖案</button>
+                <button class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors">花卉風格</button>
+                <button class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors">節慶主題</button>
+                <button class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors">角色設計</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-32 bg-gradient-to-br from-pink-300 to-purple-400 relative">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-xs px-2 py-1 rounded-full font-semibold">PRO</div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800">櫻花漸層</p>
+                        <p class="text-xs text-gray-500">by 設計師A</p>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-32 bg-gradient-to-br from-blue-300 to-teal-400 relative">
+                        <div class="absolute top-2 right-2 bg-green-400 text-xs px-2 py-1 rounded-full font-semibold">BASIC</div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800">海洋波紋</p>
+                        <p class="text-xs text-gray-500">by 設計師B</p>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-32 bg-gradient-to-br from-yellow-300 to-orange-400 relative">
+                        <div class="absolute top-2 right-2 bg-purple-400 text-xs px-2 py-1 rounded-full font-semibold text-white">PREMIUM</div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800">夕陽幾何</p>
+                        <p class="text-xs text-gray-500">by 設計師C</p>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-32 bg-gradient-to-br from-green-300 to-blue-400 relative">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-xs px-2 py-1 rounded-full font-semibold">PRO</div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800">森林印象</p>
+                        <p class="text-xs text-gray-500">by 設計師D</p>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-32 bg-gradient-to-br from-purple-300 to-pink-400 relative">
+                        <div class="absolute top-2 right-2 bg-green-400 text-xs px-2 py-1 rounded-full font-semibold">BASIC</div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800">夢幻星空</p>
+                        <p class="text-xs text-gray-500">by 設計師E</p>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-32 bg-gradient-to-br from-indigo-300 to-purple-400 relative">
+                        <div class="absolute top-2 right-2 bg-purple-400 text-xs px-2 py-1 rounded-full font-semibold text-white">PREMIUM</div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-medium text-gray-800">宇宙銀河</p>
+                        <p class="text-xs text-gray-500">by 設計師F</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                    瀏覽更多設計 →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="plans" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">訂閱方案</h2>
+                <p class="text-gray-600">選擇最適合您的方案，立即開始創作</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="pricing-card bg-white border-2 border-gray-200 rounded-2xl p-8 text-center">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Basic</h3>
+                    <div class="text-3xl font-bold text-purple-600 mb-4">NT$199<span class="text-lg text-gray-500">/月</span></div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>每月 20 張下載</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>單色/幾何/基礎款</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>標準解析度</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>基礎客服支援</li>
+                    </ul>
+                    <button class="w-full bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-700 transition-colors">
+                        選擇方案
+                    </button>
+                    <p class="text-sm text-gray-500 mt-4">適合初學美甲師、自用者</p>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card bg-purple-50 border-2 border-purple-300 rounded-2xl p-8 text-center relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm">
+                        推薦
+                    </div>
+                    <div class="text-4xl mb-4">🌿</div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Pro</h3>
+                    <div class="text-3xl font-bold text-purple-600 mb-4">NT$399<span class="text-lg text-gray-500">/月</span></div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>每月 50 張下載</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>插畫風/花卉/角色設計</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>高解析度</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>優先客服支援</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>設計師專訪內容</li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                        選擇方案
+                    </button>
+                    <p class="text-sm text-gray-500 mt-4">適合店內設計擴充</p>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card bg-white border-2 border-gray-200 rounded-2xl p-8 text-center">
+                    <div class="text-4xl mb-4">🌸</div>
+                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Premium</h3>
+                    <div class="text-3xl font-bold text-purple-600 mb-4">NT$999<span class="text-lg text-gray-500">/月</span></div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>無限下載</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>所有類型設計</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>超高解析 AI 圖</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>24/7 專屬客服</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>獨家設計搶先看</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span>商業授權使用</li>
+                    </ul>
+                    <button class="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-yellow-600 transition-colors">
+                        選擇方案
+                    </button>
+                    <p class="text-sm text-gray-500 mt-4">適合進階美甲沙龍</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <p class="text-gray-600">下載次數用完？<span class="text-purple-600 font-semibold">10 張 NT$99 加購包</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Section -->
+    <section id="machine" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">NailVerse 專業打印機</h2>
+                    <p class="text-gray-600 mb-6">
+                        結合平台軟體的一鍵列印功能，讓美甲設計從數位到實體無縫接軌。
+                        提升服務效率，增加客戶滿意度。
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">高精度列印，完美還原設計細節</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">快速列印，單次操作僅需 30 秒</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">安全無毒材料，通過國際認證</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white text-sm">✓</span>
+                            </div>
+                            <span class="text-gray-700">智慧連接，支援 WiFi 與 USB</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                            立即購買
+                        </button>
+                        <button class="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg hover:bg-purple-50 transition-colors">
+                            預約展示
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-xl">
+                    <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl h-64 flex items-center justify-center mb-6">
+                        <div class="text-6xl">🖨️</div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">NailVerse Pro Printer</h3>
+                        <p class="text-gray-600 mb-4">專業級美甲打印設備</p>
+                        <div class="bg-purple-100 rounded-lg p-4">
+                            <p class="text-purple-800 font-semibold">搭配軟體月租 NT$299/月</p>
+                            <p class="text-sm text-purple-600">或一次性買斷 NT$9,999</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Designers -->
+    <section id="designers" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">成為 NailVerse 設計師</h2>
+                <p class="text-gray-600">上架您的創意作品，獲得被動收入與品牌曝光</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-2xl">📝</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">簡單申請流程</h3>
+                                <p class="text-gray-600">免費註冊設計師帳號，上傳作品集即可開始</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-2xl">💰</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">豐厚分潤收益</h3>
+                                <p class="text-gray-600">每次下載可獲得 NT$10-50 分潤，累積被動收入</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-2xl">🌟</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">品牌曝光機會</h3>
+                                <p class="text-gray-600">個人專屬頁面，累積粉絲與接案機會</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <span class="text-2xl">📊</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold mb-2 text-gray-800">透明數據報表</h3>
+                                <p class="text-gray-600">即時查看下載次數、收益統計與作品表現</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button class="bg-teal-500 text-white px-8 py-3 rounded-lg hover:bg-teal-600 transition-colors mr-4">
+                            立即申請
+                        </button>
+                        <button class="text-teal-600 hover:text-teal-700 transition-colors">
+                            了解更多 →
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-gray-800">設計師收益試算</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">月下載次數</span>
+                                <span class="font-semibold text-gray-800">100 次</span>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">每次分潤</span>
+                                <span class="font-semibold text-gray-800">NT$30</span>
+                            </div>
+                        </div>
+                        <div class="bg-teal-100 rounded-lg p-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-teal-800 font-semibold">月收入</span>
+                                <span class="font-bold text-teal-800 text-xl">NT$3,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-600 mt-4 text-center">
+                        * 實際收益依作品受歡迎程度而定
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">平台優勢</h2>
+                <p class="text-gray-600">為什麼選擇 NailVerse？</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">提升效率</h3>
+                    <p class="text-gray-600 text-sm">快速印製，提升翻桌率，增加營收</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🎓</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">快速學習</h3>
+                    <p class="text-gray-600 text-sm">新手美甲師也能提供高質感作品</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🌟</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">推廣原創</h3>
+                    <p class="text-gray-600 text-sm">創造設計師被動收入與曝光機會</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🔄</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2 text-gray-800">生態圈</h3>
+                    <p class="text-gray-600 text-sm">從設計到應用全鏈打通</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-16">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-6">準備好進入美甲的未來世界了嗎？</h2>
+            <p class="text-xl mb-8 opacity-90">
+                加入 NailVerse，解鎖無限創意可能
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    🎨 立即訂閱
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    🖨️ 購買設備
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    ✨ 成為設計師
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">💅 NailVerse</div>
+                    <p class="text-gray-400 mb-4">數位創意 × 美甲未來</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📷</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">服務項目</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">圖庫訂閱</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">打印機銷售</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">設計師合作</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">企業方案</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">支援中心</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">常見問題</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">使用教學</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">技術支援</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">聯絡我們</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">聯絡資訊</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>📧 hello@nailverse.com</li>
+                        <li>📞 02-1234-5678</li>
+                        <li>📍 台北市信義區美甲街 123 號</li>
+                        <li>🕒 週一至週五 9:00-18:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 NailVerse. All rights reserved. | 隱私政策 | 服務條款</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Category filter functionality
+        const categoryButtons = document.querySelectorAll('section[id="gallery"] button');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('bg-purple-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-600');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-white', 'text-gray-600');
+                this.classList.add('bg-purple-600', 'text-white');
+            });
+        });
+
+        // Mobile menu toggle (if needed)
+        const mobileMenuButton = document.querySelector('[data-mobile-menu]');
+        const mobileMenu = document.querySelector('[data-mobile-menu-content]');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-sm');
+            } else {
+                nav.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // Pricing calculator for designers
+        const downloadInput = document.querySelector('#download-count');
+        const revenueOutput = document.querySelector('#revenue-output');
+        
+        if (downloadInput && revenueOutput) {
+            downloadInput.addEventListener('input', function() {
+                const downloads = parseInt(this.value) || 0;
+                const revenue = downloads * 30; // NT$30 per download
+                revenueOutput.textContent = `NT$${revenue.toLocaleString()}`;
+            });
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96b58fa8d3d7f234',t:'MTc1NDU1Njk5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
